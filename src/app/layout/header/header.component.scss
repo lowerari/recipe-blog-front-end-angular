@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+$secondary-background-color: #E7DECD;
+$highlight-color: #EF798A;
+
+.top-header{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: $secondary-background-color 5px solid;
+
+    .title{
+        font-family: 'Satisfy', cursive;
+        font-size: 2rem;
+        padding: 1rem;
+        pointer-events: none;
+
+        span{
+            color: $highlight-color;
+        }
+    }
+
+    .registration-links{
+        display: flex;
+        align-items: center;
+        width: 300px;
+
+        .login-link{
+            padding: 5px 10px;
+            border: 2px solid $highlight-color;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 15px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .login-link:hover{
+            background-color: $highlight-color;
+            color: white;
+        }
+
+        .signup-link{
+            position: relative;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            overflow: hidden; // This is to hide the underline that appears when the text is hovered
+
+            &::before{
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 1px;
+                bottom: 0;
+                left: 0;
+                background-color: $highlight-color;
+                visibility: hidden;
+                transition: width 0.3s ease;
+            }
+
+            &:hover{
+                color: $highlight-color;
+
+                &::before{
+                    visibility: visible;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .inviso-div{
+        width: 300px;
+    }
+}
+
+.bottom-header{
+    display: flex;
+    justify-content: center;
+
+    .nav-link{
+        margin: 10px;
+        font-weight: 600;
+        transition: color 0.3s ease;
+        cursor: pointer;
+
+        &:hover{
+            color: $highlight-color;
+        }
+    }
+}
