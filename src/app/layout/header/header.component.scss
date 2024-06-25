@@ -74,6 +74,7 @@ $highlight-color: #EF798A;
 .bottom-header{
     display: flex;
     justify-content: center;
+    border-bottom: 2px solid $secondary-background-color;
 
     .nav-link{
         margin: 10px;
@@ -84,5 +85,9 @@ $highlight-color: #EF798A;
         &:hover{
             color: $highlight-color;
         }
+    }
+
+    a.active{
+        color: $highlight-color;
     }
 }
