@@ -2,19 +2,25 @@
     <div class="inviso-div"></div>
     <div class="title"><span>Recipe</span>ReviewCorner</div>
     <div class="registration-links">
-        <div class="login-link">
-            LOG IN
-        </div>
-        <div class="signup-link">
-            SIGN UP
-        </div>
+        <a routerLink="/login">
+            <div class="login-link">
+                LOG IN
+            </div>
+        </a>
+        <a routerLink="/sign-up">
+            <div class="signup-link">
+                SIGN UP
+            </div>
+        </a>
     </div>
 </div>
 
 <div class="bottom-header">
-    <div class="nav-link">
-        Home
-    </div>
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <div class="nav-link">
+            Home
+        </div>
+    </a>
     <div class="nav-link">
         Blogs
     </div>

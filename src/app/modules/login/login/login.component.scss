@@ -1,0 +1,134 @@
+$secondary-background-color: #E7DECD;
+$highlight-color: #EF798A;
+
+.registrationPage{
+    display: flex;
+    height: 82.5vh;
+    background-color: $secondary-background-color;
+    align-items: center;
+    justify-content: center;
+
+    .log-in-container{
+        display: flex;
+        height: 90%;
+        width: 90%;
+        border-radius: 10px;
+        overflow: hidden;
+
+        .image{
+            width: 45%;
+            height: 100%;
+            background-image: url('/assets/calum-lewis-vA1L1jRTM70-unsplash.jpg');
+            background-position: center;
+            background-size: cover;
+        }
+    
+        .log-in-form-area{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60%;
+    
+            .log-in-form-card{
+                height: 100%;
+                width: 100%;
+                background-color: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+
+                .welcome{
+                    font-size: 2rem;
+                    margin-bottom: 20px;
+                    font-weight: 600;
+                }
+
+                .no-account{
+                    color: rgba(0, 0, 0, 0.447);
+                    margin-bottom: 20px;
+
+                    a{
+                        color: $highlight-color;
+                        position: relative;
+
+                        &::before{
+                            content: '';
+                            position: absolute;
+                            width: 0;
+                            height: 1px;
+                            bottom: 0;
+                            left: 0;
+                            background-color: $highlight-color;
+                            visibility: hidden;
+                            transition: width 0.3s ease;
+                        }
+
+                        &:hover{
+                            &::before{
+                                visibility: visible;
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+
+                .username{
+                    width: 40%;
+                    margin-bottom: 20px;
+                    input{
+                        font-family: "Quicksand", sans-serif;
+                        width: 100%;
+                        font-size: 1rem;
+                        padding: 2px;
+
+                        &:focus-visible{
+                            outline: none;
+                            border: 2px solid $highlight-color;
+                            border-radius: 2px;
+                        }
+                    }
+                }
+
+                .password{
+                    width: 40%;
+                    margin-bottom: 20px;
+                    input{
+                        font-family: "Quicksand", sans-serif;
+                        width: 100%;
+                        font-size: 1rem;
+                        padding: 2px;
+
+                        &:focus-visible{
+                            outline: none;
+                            border: 2px solid $highlight-color;
+                            border-radius: 2px;
+                        }
+                    }
+                }
+
+                .log-in-button{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 5px;
+                    border: 2px solid $highlight-color;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    transition: background-color 0.3s ease, color 0.3s ease;
+                    width: 40%;
+                    text-transform: uppercase;
+                    margin-bottom: 20px;
+
+                    &:hover{
+                        background-color: $highlight-color;
+                        color: white;
+                    }
+                }
+            }
+        }
+
+
+    }
+
+}
