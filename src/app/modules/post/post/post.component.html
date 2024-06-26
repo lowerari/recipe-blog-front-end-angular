@@ -1,0 +1,33 @@
+<div class="post-page">
+    <div class="post-container">
+        <div class="title">
+            Create a New Post
+        </div>
+        <div class="post-title">
+            <input type="text" placeholder="Review Title" />
+        </div>
+        <div class="post-rating">
+            Rating:
+            <p-rating [(ngModel)]="value" [cancel]="false" [readonly]="false"/>
+        </div>
+        <div class="post-category">
+            <label for="categories">Category:</label>
+            <select name="categories" id="categories">
+                <option value="breakfast">Breakfast</option>
+                <option value="lunch">Lunch</option>
+                <option value="dinner">Dinner</option>
+                <option value="dessert">Dessert</option>
+            </select>
+        </div>
+        <div class="post-image">
+            Image:
+            <input type="file" accept="image/*" />
+        </div>
+        <div class="post-content">
+            <textarea placeholder="Write your review here"></textarea>
+        </div>
+        <div class="submit-post">
+            SUBMIT
+        </div>
+    </div>
+</div>

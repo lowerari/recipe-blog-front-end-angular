@@ -6,3 +6,5 @@ This project is a reattempt of a front end made for a previous project. The purp
 
 - Home page completed!
 - Login and signup pages completed! (as of yet no connection to back end)
+- Blogs page is laid out (still no connection to back end yet)
+- Post page completed! (but not linked to back end)

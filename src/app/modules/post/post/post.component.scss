@@ -1,0 +1,135 @@
+$secondary-background-color: #E7DECD;
+$highlight-color: #EF798A;
+
+.post-page{
+    background-color: $secondary-background-color;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .post-container{
+        background-image: url('/assets/joseph-gonzalez-zcUgjyqEwe8-unsplash.jpg');
+        background-size: cover;
+        background-position: center;
+        height: 85%;
+        width: 60%;
+        border-radius: 10px;
+        box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.453);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: white;
+
+        .title{
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+
+            &::before{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 1px;
+                bottom: 0;
+                left: 0;
+                background-color: $highlight-color;
+            }
+        }
+
+        .post-title{
+            width: 40%;
+            margin-bottom: 20px;
+
+            input{
+                font-family: "Quicksand", sans-serif;
+                width: 100%;
+                font-size: 1rem;
+                padding: 2px;
+
+                &:focus-visible{
+                    outline: none;
+                    border: 2px solid $highlight-color;
+                    border-radius: 2px;
+                }
+            }
+        }
+
+        .post-rating{
+            font-size: 1.2rem;
+            width: 23%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .post-category{
+            font-size: 1.2rem;
+            width: 23%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+
+            select{
+                padding: 5px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-family: "Quicksand", sans-serif;
+                width: 100px;
+                background-color: white;
+                border: none;
+            }
+        }
+
+        .post-image{
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            width: 23%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            input{
+                font-family: "Quicksand", sans-serif;
+                width: 69%;
+                font-size: 0.7rem;
+            }
+        }
+
+        .post-content{
+            width: 40%;
+            margin-bottom: 20px;
+
+            textarea{
+                font-family: "Quicksand", sans-serif;
+                width: 100%;
+                font-size: 1rem;
+                padding: 2px;
+                height: 200px;
+
+                &:focus-visible{
+                    outline: none;
+                    border: 2px solid $highlight-color;
+                    border-radius: 2px;
+                }
+            }
+        }
+        
+        .submit-post{
+            width: 40%;
+            border: 2px solid $highlight-color;
+            display: flex;
+            justify-content: center;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &:hover{
+                background-color: $highlight-color;
+            }
+        }
+    }
+}
