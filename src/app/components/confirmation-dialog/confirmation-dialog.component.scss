@@ -1,0 +1,64 @@
+$highlight-color: #EF798A;
+
+.darkBG{
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.centered{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+
+    .confirmationDialog{
+        background-color: white;
+        border-radius: 5px;
+        padding: 20px;
+
+        .close{
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        h1{
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        p{
+            text-align: center;
+            color: rgba(0, 0, 0, 0.645);
+        }
+
+        .confirmationButtons{
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+
+            .accept{
+                padding: 5px 30px;
+                background-color: $highlight-color;
+                color: white;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+
+            .cancel{
+                padding: 5px 30px;
+                border: 2px solid black;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+}

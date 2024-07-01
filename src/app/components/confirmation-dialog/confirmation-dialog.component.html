@@ -1,0 +1,14 @@
+<div class="darkBG"></div>
+<div class="centered">
+    <div class="confirmationDialog">
+        <div class="close" (click)="onCancel()">
+            <i class="pi pi-times"></i>
+        </div>
+        <h1>{{message}}</h1>
+        <p>This action can't be undone.</p>
+        <div class="confirmationButtons">
+            <div class="accept" (click)="onConfirm()">Delete</div>
+            <div class="cancel" (click)="onCancel()">Cancel</div>
+        </div>
+    </div>
+</div>
