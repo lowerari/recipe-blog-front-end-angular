@@ -21,5 +21,9 @@ export const routes: Routes = [
     {
         path: 'post',
         loadChildren: () => import('./modules/post/post.module').then(m => m.PostModule)
+    },
+    {
+        path: 'blog',
+        loadChildren: () => import('./modules/blog/blog.module').then(m => m.BlogModule)
     }
 ];
