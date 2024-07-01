@@ -64,6 +64,77 @@ $highlight-color: #EF798A;
             color: rgba(0, 0, 0, 0.7);
             text-align: justify;
         }
+
+        .edit-delete{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+
+            hr{
+                width: 55%;
+                color: rgba(0, 0, 0, 0.473);
+                margin-bottom: 10px;
+            }
+
+            .buttons{
+                display: flex;
+                width: 55%;
+                font-size: .9rem;
+
+                .edit-button{
+                    cursor: pointer;
+                    margin-right: 10px;
+                    position: relative;
+
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        width: 0;
+                        height: 1px;
+                        bottom: 0;
+                        left: 0;
+                        background-color: black;
+                        visibility: hidden;
+                        transition: width 0.3s ease;
+                    }
+
+                    &:hover{
+                        &::before{
+                            visibility: visible;
+                            width: 100%;
+                        }
+                    }
+                }
+
+                .delete-button{
+                    cursor: pointer;
+                    position: relative;
+
+                    &::before{
+                        content: '';
+                        position: absolute;
+                        width: 0;
+                        height: 1px;
+                        bottom: 0;
+                        left: 0;
+                        background-color: red;
+                        visibility: hidden;
+                        transition: width 0.3s ease;
+                    }
+
+                    &:hover{
+                        color: red;
+
+                        &::before{
+                            visibility: visible;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     .comments-container{
