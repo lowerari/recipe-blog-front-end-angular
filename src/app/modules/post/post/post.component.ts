@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './post.component.scss'
 })
 export class PostComponent {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   title:string = '';
   rating:number = 0;
@@ -34,6 +35,7 @@ export class PostComponent {
     this.http.post(url, formData, { headers: { Authorization: `Token ${token}` } }).subscribe({
       next: (response: any) => {
         console.log('Response:', response);
+        this.router.navigate(['/blogs']);
       },
       error: (error: any) => {
         console.error('Error:', error);

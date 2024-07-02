@@ -230,89 +230,97 @@ $highlight-color: #EF798A;
             }
         }
 
-        .comment{
-            width: 55%;
-            margin-top: 20px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.473);
-            padding-bottom: 10px;
+        .user_comments{
+            display: flex;
+            flex-direction: column-reverse;
+            width: 100%;
+            align-items: center;
 
-            .comment-author{
-                font-size: 1.2rem;
-                margin-bottom: 5px;
-                font-weight: 600;
-            }
-
-            .comment-content{
-                color: rgba(0, 0, 0, 0.7);
-                margin-bottom: 5px;
-            }
-
-            .comment-footer{
-                display: flex;
-
-                .comment-buttons{
-                    display: flex;
-                    margin-right: 10px;
-                    font-size: .9rem;
-
-                    .edit-button{
-                        cursor: pointer;
-                        margin-right: 10px;
-                        position: relative;
-
-                        &::before{
-                            content: '';
-                            position: absolute;
-                            width: 0;
-                            height: 1px;
-                            bottom: 0;
-                            left: 0;
-                            background-color: black;
-                            visibility: hidden;
-                            transition: width 0.3s ease;
-                        }
-
-                        &:hover{
-                            &::before{
-                                visibility: visible;
-                                width: 100%;
-                            }
-                        }
-                    }
-
-                    .delete-button{
-                        cursor: pointer;
-                        position: relative;
-
-                        &::before{
-                            content: '';
-                            position: absolute;
-                            width: 0;
-                            height: 1px;
-                            bottom: 0;
-                            left: 0;
-                            background-color: red;
-                            visibility: hidden;
-                            transition: width 0.3s ease;
-                        }
-
-                        &:hover{
-                            color: red;
-
-                            &::before{
-                                visibility: visible;
-                                width: 100%;
-                            }
-                        }
-                    }
+            .comment{
+                width: 55%;
+                margin-top: 20px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.473);
+                padding-bottom: 10px;
+    
+                .comment-author{
+                    font-size: 1.2rem;
+                    margin-bottom: 5px;
+                    font-weight: 600;
                 }
-
-                .comment-time{
-                    color: rgba(0, 0, 0, 0.473);
-                    border-left: 1px solid rgba(0, 0, 0, 0.473);
-                    padding-left: 5px;
+    
+                .comment-content{
+                    color: rgba(0, 0, 0, 0.7);
+                    margin-bottom: 5px;
+                }
+    
+                .comment-footer{
+                    display: flex;
+    
+                    .comment-buttons{
+                        display: flex;
+                        margin-right: 10px;
+                        font-size: .9rem;
+    
+                        .edit-button{
+                            cursor: pointer;
+                            margin-right: 10px;
+                            position: relative;
+    
+                            &::before{
+                                content: '';
+                                position: absolute;
+                                width: 0;
+                                height: 1px;
+                                bottom: 0;
+                                left: 0;
+                                background-color: black;
+                                visibility: hidden;
+                                transition: width 0.3s ease;
+                            }
+    
+                            &:hover{
+                                &::before{
+                                    visibility: visible;
+                                    width: 100%;
+                                }
+                            }
+                        }
+    
+                        .delete-button{
+                            cursor: pointer;
+                            position: relative;
+    
+                            &::before{
+                                content: '';
+                                position: absolute;
+                                width: 0;
+                                height: 1px;
+                                bottom: 0;
+                                left: 0;
+                                background-color: red;
+                                visibility: hidden;
+                                transition: width 0.3s ease;
+                            }
+    
+                            &:hover{
+                                color: red;
+    
+                                &::before{
+                                    visibility: visible;
+                                    width: 100%;
+                                }
+                            }
+                        }
+                    }
+    
+                    .comment-time{
+                        color: rgba(0, 0, 0, 0.473);
+                        border-left: 1px solid rgba(0, 0, 0, 0.473);
+                        padding-left: 5px;
+                    }
                 }
             }
         }
+        
     }
 }
