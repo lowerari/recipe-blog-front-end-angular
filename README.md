@@ -12,8 +12,11 @@ This project is a reattempt of a front end made for a previous project. The purp
 - Edit and delete modals made! (but don't do anything yet)
 - Signup and login are attached to the back end!
 - Blogs page getting blogs from back end and only accessible to logged in users.
+- Post page is working with the back end to post new blogs.
+- Individual blog page is getting the individual blog from the back (no comments yet)
 
 # To do:
 - Add error handling to login and signup
 - Truncate titles on blogs if they are too long
 - Create error page for blogs and post pages if user is not logged in
+- Make edit and delete functions work
