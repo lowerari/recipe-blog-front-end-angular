@@ -4,15 +4,15 @@
             Create a New Post
         </div>
         <div class="post-title">
-            <input type="text" placeholder="Review Title" />
+            <input type="text" placeholder="Review Title" [(ngModel)]="title" />
         </div>
         <div class="post-rating">
             Rating:
-            <p-rating [(ngModel)]="value" [cancel]="false" [readonly]="false"/>
+            <p-rating [(ngModel)]="rating" [cancel]="false" [readonly]="false"/>
         </div>
         <div class="post-category">
             <label for="categories">Category:</label>
-            <select name="categories" id="categories">
+            <select name="categories" id="categories" [(ngModel)]="category">
                 <option value="breakfast">Breakfast</option>
                 <option value="lunch">Lunch</option>
                 <option value="dinner">Dinner</option>
@@ -21,12 +21,15 @@
         </div>
         <div class="post-image">
             Image:
-            <input type="file" accept="image/*" />
+            <input type="file" accept="image/*" (change)="onFileSelected($event)"/>
+        </div>
+        <div class="recipe-link">
+            <input type="text" placeholder="Link to recipe" [(ngModel)]="recipeLink"/>
         </div>
         <div class="post-content">
-            <textarea placeholder="Write your review here"></textarea>
+            <textarea placeholder="Write your review here" [(ngModel)]="content"></textarea>
         </div>
-        <div class="submit-post">
+        <div class="submit-post" (click)="post()">
             SUBMIT
         </div>
     </div>

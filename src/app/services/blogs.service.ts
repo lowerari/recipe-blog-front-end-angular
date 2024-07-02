@@ -21,4 +21,8 @@ export class BlogsService {
 
     return this.apiService.get<Blog[]>(url, token);
   }
+
+  addBlog(url: string, token: string, body: any): Observable<Blog> {
+    return this.apiService.post<Blog>(url, token, body);
+  }
 }
