@@ -44,6 +44,7 @@ $highlight-color: #EF798A;
             .category{
                 font-size: 1.2rem;
                 color: rgba(0, 0, 0, 0.5);
+                text-transform: capitalize;
             }
         }
 
@@ -53,6 +54,34 @@ $highlight-color: #EF798A;
 
             img{
                 width: 100%;
+            }
+        }
+
+        .recipe-link{
+            margin-top: 5px;
+
+            a{
+                color: $highlight-color;
+                position: relative;
+
+                &::before{
+                    content: '';
+                    position: absolute;
+                    width: 0;
+                    height: 1px;
+                    bottom: 0;
+                    left: 0;
+                    background-color: $highlight-color;
+                    visibility: hidden;
+                    transition: width 0.3s ease;
+                }
+
+                &:hover{
+                    &::before{
+                        visibility: visible;
+                        width: 100%;
+                    }
+                }
             }
         }
 

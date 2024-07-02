@@ -1,5 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ConfirmationService } from 'primeng/api';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-blog',
@@ -7,6 +9,19 @@ import { ConfirmationService } from 'primeng/api';
   styleUrl: './blog.component.scss'
 })
 export class BlogComponent {
+  id: string | null = null;
+
+  constructor (private route: ActivatedRoute, private http: HttpClient) { }
+
+  timestamp: string = '';
+  title: string = '';
+  author: string = '';
+  category: string = '';
+  rating: number = 0;
+  imageUrl: string = '';
+  link: string = '';
+  content: string = '';
+
   value = 5;
 
   showDialog = false;
@@ -43,6 +58,27 @@ export class BlogComponent {
     this.showEditDialog = false;
   }
 
+  fetchBlog() {
+    const url = `https://salty-temple-86081-1a18659ec846.herokuapp.com/blogs/${this.id}`;
+    const token = localStorage.getItem('token') || ''; //Have to provide an alternative value for the case where the token is not available
+    this.http.get(url, { headers: { Authorization: `Token ${token}` } }).subscribe({
+      next: (response: any) => {
+        console.log('Response:', response);
+        this.timestamp = response.timestamp;
+        this.title = response.title;
+        this.author = response.author_username;
+        this.category = response.category;
+        this.rating = response.rating;
+        this.imageUrl = response.picture;
+        this.link = response.link;
+        this.content = response.content;
+      },
+      error: (error: any) => {
+        console.error('Error:', error);
+      }
+    });
+  }
+
   // constructor(private confirmationService: ConfirmationService) {}
 
   // @ViewChild('deleteButton') deleteButton: any; //Locates and gets the delete button
@@ -63,7 +99,9 @@ export class BlogComponent {
   //   });
   // }
 
-  // ngOnInit() {
-  // }
+  ngOnInit() {
+    this.id = this.route.snapshot.paramMap.get('id'); //Gets the id parameter from the route
+    this.fetchBlog();
+  }
 
 }

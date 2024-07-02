@@ -22,7 +22,7 @@
     <div class="blogs">
 
         <!-- Trying to generate the blogs -->
-         <a *ngFor="let blog of filteredBlogs" routerLink="/blog">
+         <a *ngFor="let blog of filteredBlogs" routerLink="/blog/{{blog.id}}">
             <div class="blog-card">
                 <div class="blog-image">
                     <img src="http://res.cloudinary.com/dlctj1zzp/{{blog.picture}}" alt="{{blog.title}}">

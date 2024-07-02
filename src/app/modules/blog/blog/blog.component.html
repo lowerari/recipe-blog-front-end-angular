@@ -2,32 +2,37 @@
     <div class="blog-container">
         <div class="title-content">
             <div class="posted-date">
-                Posted on: dd/mm/yyyy
+                Posted on: {{timestamp | date: 'dd/MM/yyyy'}}
             </div>
             <div class="blog-title">
-                Dummy Blog Title
+                {{title}}
             </div>
             <div class="blog-author">
-                Review by: Dummy Author
+                Review by: {{author}}
             </div>
         </div>
 
         <div class="category-rating">
             <div class="category">
-                Lunch
+                {{category}}
             </div>
             <div class="rating">
-                <p-rating [(ngModel)]="value" [cancel]="false" [readonly]="true"/>
+                <p-rating [(ngModel)]="rating" [cancel]="false" [readonly]="true"/>
             </div>
         </div>
 
         <div class="blog-image">
-            <img src="/assets/anh-nguyen-kcA-c3f_3FE-unsplash.jpg" alt="A dummy image">
+            <img src="http://res.cloudinary.com/dlctj1zzp/{{imageUrl}}" alt="{{title}}">
+        </div>
+
+        <div class="recipe-link">
+            View this recipe at: <a href="{{link}}">{{link}}</a>
         </div>
 
         <div class="blog-content">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime itaque consectetur reiciendis laborum laudantium aut culpa dolorum doloribus similique. Illum natus ad aut odio adipisci officiis molestiae vero cupiditate magnam ipsam consequatur, quam molestias ipsum quae doloremque veniam enim dicta. Vel sed debitis velit laudantium officia. Dolor quidem eum laboriosam?
+            {{content}}
         </div>
+        
         <div class="edit-delete">
             <hr>
             <div class="buttons">
@@ -42,6 +47,7 @@
             </div>
         </div>
     </div>
+
     <div class="comments-container">
         <div class="title">
             Comments
