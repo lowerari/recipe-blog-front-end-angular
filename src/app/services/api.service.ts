@@ -19,4 +19,12 @@ export class ApiService {
 
     return this.http.get<T>(url, options) as Observable<T>;
   }
+
+  post<T>(url: string, token: string, body: any, options?: Options): Observable<T> {
+    options = options || {};
+    options.headers = options.headers instanceof HttpHeaders ? options.headers : new HttpHeaders(options.headers);
+    options.headers = options.headers.set('Authorization', `Token ${token}`);
+
+    return this.http.post<T>(url, body, options) as Observable<T>;
+  }
 }
