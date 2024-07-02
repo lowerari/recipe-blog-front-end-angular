@@ -53,15 +53,36 @@
             Comments
         </div>
         <div class="new-comment">
-            <textarea placeholder="Write a comment"></textarea>
+            <textarea placeholder="Write a comment" [(ngModel)]="commentContent"></textarea>
             <hr>
             <div class="submit-comment">
-                <div class="submit-button">
+                <div class="submit-button" (click)="postComment()">
                     Submit
                 </div>
             </div>
         </div>
-        <div class="comment">
+
+        <div class="user_comments">
+            <div class="comment" *ngFor="let comment of comments">
+                <div class="comment-author">{{comment.author_username}}</div>
+                <div class="comment-content">{{comment.content}}</div>
+                <div class="comment-footer">
+                    <div class="comment-buttons">
+                        <div class="edit-button" (click)="confirmEditAction()">
+                            Edit
+                            <i class="pi pi-pencil" style="font-size: .7rem"></i>
+                        </div>
+                        <div class="delete-button" (click)="confirmAction()">
+                            Delete
+                            <i class="pi pi-trash" style="font-size: .7rem"></i>
+                        </div>
+                    </div>
+                    <div class="comment-time">Posted on: {{comment.timestamp | date: 'dd/MM/yyyy HH:mm' }}</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="comment">
             <div class="comment-author">Dummy Author 1</div>
             <div class="comment-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, amet?</div>
             <div class="comment-footer">
@@ -111,7 +132,7 @@
                 </div>
                 <div class="comment-time">Posted on: dd/mm/yyyy 00:00:00</div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>
 

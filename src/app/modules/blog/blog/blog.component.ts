@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ConfirmationService } from 'primeng/api';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Comment } from '../../../../types';
+import { CommentsService } from '../../../services/comments.service';
 
 @Component({
   selector: 'app-blog',
@@ -11,7 +13,7 @@ import { HttpClient } from '@angular/common/http';
 export class BlogComponent {
   id: string | null = null;
 
-  constructor (private route: ActivatedRoute, private http: HttpClient) { }
+  constructor (private route: ActivatedRoute, private http: HttpClient, private commentsService: CommentsService) { }
 
   timestamp: string = '';
   title: string = '';
@@ -21,8 +23,6 @@ export class BlogComponent {
   imageUrl: string = '';
   link: string = '';
   content: string = '';
-
-  value = 5;
 
   showDialog = false;
 
@@ -79,6 +79,36 @@ export class BlogComponent {
     });
   }
 
+  comments: Comment[] = [];
+
+  fetchComments(){
+    const url = `https://salty-temple-86081-1a18659ec846.herokuapp.com/blogs/${this.id}/comments/`;
+    const token = localStorage.getItem('token') || ''; //Have to provide an alternative value for the case where the token is not available
+    this.commentsService.getComments(url, token).subscribe((comments: Comment[]) => {
+      console.log('Response:', comments);
+      this.comments = comments;
+    });
+  }
+
+  commentContent = '';
+
+  postComment() {
+    const url = `https://salty-temple-86081-1a18659ec846.herokuapp.com/blogs/${this.id}/comments/`;
+    const body = { content: this.commentContent };
+    const token = localStorage.getItem('token') || ''; //Have to provide an alternative value for the case where the token is not available
+
+    this.http.post(url, body, { headers: { Authorization: `Token ${token}` } }).subscribe({
+      next: (response: any) => {
+        console.log('Response:', response);
+        this.fetchComments(); //Refresh the comments
+        this.commentContent = ''; //Clear the comment content
+      },
+      error: (error: any) => {
+        console.error('Error:', error);
+      }
+    });   
+  }
+
   // constructor(private confirmationService: ConfirmationService) {}
 
   // @ViewChild('deleteButton') deleteButton: any; //Locates and gets the delete button
@@ -102,6 +132,7 @@ export class BlogComponent {
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id'); //Gets the id parameter from the route
     this.fetchBlog();
+    this.fetchComments();
   }
 
 }

@@ -30,6 +30,15 @@ export interface Blog {
     timestamp: string;
 }
 
+export interface Comment {
+    id: number;
+    content: string;
+    author: number;
+    author_username: string;
+    timestamp: string;
+    blog_id: number;
+}
+
 // export interface Blogs{
 //     blogs: Blog[];
 // }
