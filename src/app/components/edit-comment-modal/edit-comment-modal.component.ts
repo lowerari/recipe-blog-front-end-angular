@@ -3,17 +3,16 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-edit-modal',
+  selector: 'app-edit-comment-modal',
   standalone: true,
   imports: [ReactiveFormsModule, CommonModule],
-  templateUrl: './edit-modal.component.html',
-  styleUrl: './edit-modal.component.scss'
+  templateUrl: './edit-comment-modal.component.html',
+  styleUrl: './edit-comment-modal.component.scss'
 })
-export class EditModalComponent {
+export class EditCommentModalComponent {
   constructor (private formBuilder: FormBuilder) { }
   @Input() message: string = '';
   @Input() content: string = '';
-  // @Output() accept = new EventEmitter<string>();
   @Output() cancel = new EventEmitter<void>();
   @Output() accept = new EventEmitter<string>();
 
