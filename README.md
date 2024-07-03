@@ -16,11 +16,13 @@ This project is a reattempt of a front end made for a previous project. The purp
 - Individual blog page is getting the individual blog from the back (no comments yet)
 - Comments for individual blogs retrieved from back end
 - Can post a comment to a blog
+- Blogs and comments can be edited and deleted by their authors
 
 # To do:
 - Add error handling to login and signup
 - Truncate titles on blogs if they are too long
 - Create error page for blogs and post pages if user is not logged in
-- Make edit and delete functions work
 - Add "there are no comments yet!"
 - See if it's possible to separate content into paragraphs (at least if it was submitted that way)
+- Make edit and delete only appear for author of comment/blog
+- Deploy!

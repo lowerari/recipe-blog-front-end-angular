@@ -9,6 +9,8 @@ import { ConfirmationService } from 'primeng/api';
 import { ConfirmPopupModule } from 'primeng/confirmpopup';
 import { ConfirmationDialogComponent } from '../../components/confirmation-dialog/confirmation-dialog.component';
 import { EditModalComponent } from '../../components/edit-modal/edit-modal.component';
+import { ConfirmDeleteCommentComponent } from '../../components/confirm-delete-comment/confirm-delete-comment.component';
+import { EditCommentModalComponent } from '../../components/edit-comment-modal/edit-comment-modal.component';
 
 
 @NgModule({
@@ -22,7 +24,9 @@ import { EditModalComponent } from '../../components/edit-modal/edit-modal.compo
     FormsModule,
     ConfirmPopupModule,
     ConfirmationDialogComponent,
-    EditModalComponent
+    EditModalComponent,
+    ConfirmDeleteCommentComponent,
+    EditCommentModalComponent
   ],
   providers: [ConfirmationService]
 })
