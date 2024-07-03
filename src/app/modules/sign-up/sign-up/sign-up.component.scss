@@ -124,6 +124,16 @@ $highlight-color: #EF798A;
                     }
                 }
 
+                .password-error{
+                    color: red;
+                    margin-bottom: 20px;
+                }
+
+                .sign-up-error{
+                    color: red;
+                    margin-bottom: 20px;
+                }
+
                 .sign-up-button{
                     display: flex;
                     justify-content: center;

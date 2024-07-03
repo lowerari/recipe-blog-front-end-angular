@@ -1,5 +1,17 @@
 <div class="post-page">
-    <div class="post-container">
+
+    <div class="not-logged-in" *ngIf="token.length === 0">
+        <div class="card">
+            <div class="card-title">
+                You need to be logged in to post a blog.
+            </div>
+            <div class="card-text">
+                <a routerLink="/login">Log in</a> or <a routerLink="/sign-up">Sign up</a> to post.
+            </div>
+        </div>
+    </div>
+
+    <div class="post-container" *ngIf="token.length > 0">
         <div class="title">
             Create a New Post
         </div>

@@ -5,6 +5,37 @@ $highlight-color: #EF798A;
     background-color: $secondary-background-color;
     min-height: 100vh;
 
+    .not-logged-in{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+
+        .card{
+            background-color: white;
+            border-radius: 5px;
+            height: 50%;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .card-title{
+                font-size: 2rem;
+                font-weight: 600;
+                margin-bottom: 20px;
+            }
+
+            .card-text{
+                a{
+                    color: $highlight-color;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
     .blog-page-heading{
         display: flex;
         justify-content: space-between;

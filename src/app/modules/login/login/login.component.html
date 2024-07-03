@@ -15,6 +15,9 @@
                 <div class="password">
                     <input type="password" placeholder="Password" [(ngModel)]="password" />
                 </div>
+                <div class="log-in-error" *ngIf="loginError">
+                    Invalid username or password.
+                </div>
                 <div class="log-in-button" (click)="logIn(username, password)">
                     Log In
                 </div>

@@ -8,6 +8,38 @@ $highlight-color: #EF798A;
     justify-content: center;
     align-items: center;
 
+    .not-logged-in{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+
+        .card{
+            background-color: white;
+            border-radius: 5px;
+            height: 50%;
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .card-title{
+                font-size: 2rem;
+                font-weight: 600;
+                margin-bottom: 20px;
+            }
+
+            .card-text{
+                a{
+                    color: $highlight-color;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
     .post-container{
         background-image: url('/assets/joseph-gonzalez-zcUgjyqEwe8-unsplash.jpg');
         background-size: cover;
