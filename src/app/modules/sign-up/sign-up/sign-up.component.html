@@ -18,6 +18,12 @@
                 <div class="confirm-password">
                     <input type="password" placeholder="Confirm Password" [(ngModel)]="confirmPassword" />
                 </div>
+                <div class="password-error" *ngIf="passwordsError">
+                    Passwords do not match.
+                </div>
+                <div class="sign-up-error" *ngIf="signupError">
+                    Please fill in all fields.
+                </div>
                 <div class="sign-up-button" (click)="signUp(username, password)">
                     Sign Up
                 </div>

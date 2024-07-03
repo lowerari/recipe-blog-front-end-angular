@@ -230,6 +230,13 @@ $highlight-color: #EF798A;
             }
         }
 
+        .no-comments{
+            font-size: 1.2rem;
+            color: rgba(0, 0, 0, 0.7);
+            margin-top: 20px;
+            font-style: italic;
+        }
+
         .user_comments{
             display: flex;
             flex-direction: column-reverse;
@@ -265,6 +272,12 @@ $highlight-color: #EF798A;
                             cursor: pointer;
                             margin-right: 10px;
                             position: relative;
+
+                            &.inactive{
+                                cursor: not-allowed;
+                                pointer-events: none;
+                                color: rgba(0, 0, 0, 0.34);
+                            }
     
                             &::before{
                                 content: '';
@@ -289,6 +302,12 @@ $highlight-color: #EF798A;
                         .delete-button{
                             cursor: pointer;
                             position: relative;
+
+                            &.inactive{
+                                cursor: not-allowed;
+                                pointer-events: none;
+                                color: rgba(0, 0, 0, 0.34);
+                            }
     
                             &::before{
                                 content: '';

@@ -1,5 +1,15 @@
 <div class="blog-page">
-    <div class="blog-page-heading">
+    <div class="not-logged-in" *ngIf="token.length === 0">
+        <div class="card">
+            <div class="card-title">
+                You need to be logged in to view the blogs.
+            </div>
+            <div class="card-text">
+                <a routerLink="/login">Log in</a> or <a routerLink="/sign-up">Sign up</a> to view the blogs.
+            </div>
+        </div>
+    </div>
+    <div class="blog-page-heading" *ngIf="token.length > 0">
         <div class="inviso-div"></div>
         <div class="title">Our Blogs</div>
         <div class="sort-bar">
@@ -35,7 +45,7 @@
                         <p-rating [(ngModel)]="blog.rating" [cancel]="false" [readonly]="true" class="custom-rate"/>
                     </div>
                     <div class="blog-title">
-                        {{blog.title}}
+                        {{blog.title | truncateName}}
                     </div>
                     <div class="blog-author">
                         review by: {{blog.author_username}}

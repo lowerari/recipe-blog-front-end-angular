@@ -18,6 +18,7 @@ export class BlogComponent {
   timestamp: string = '';
   title: string = '';
   author: string = '';
+  author_id: number = 0;
   category: string = '';
   rating: number = 0;
   imageUrl: string = '';
@@ -36,6 +37,8 @@ export class BlogComponent {
   showEditCommentDialog = false;
 
   comment_id: number = 0;
+
+  user_id: number = 0;
 
   confirmAction() {
     this.showDialog = true;
@@ -114,6 +117,7 @@ export class BlogComponent {
         this.timestamp = response.timestamp;
         this.title = response.title;
         this.author = response.author_username;
+        this.author_id = response.author;
         this.category = response.category;
         this.rating = response.rating;
         this.imageUrl = response.picture;
@@ -219,12 +223,28 @@ export class BlogComponent {
     });
   }
 
+  fetchUserData(){
+    const url = `https://salty-temple-86081-1a18659ec846.herokuapp.com/user/`;
+    const token = localStorage.getItem('token') || '';
+
+    this.http.get(url, { headers: { Authorization: `Token ${token}` } }).subscribe({
+      next: (response: any) => {
+        console.log('Response:', response);
+        this.user_id = response.id;
+      },
+      error: (error: any) => {
+        console.error('Error:', error);
+      }
+    })
+  }
+
   // constructor(private confirmationService: ConfirmationService) {}
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id'); //Gets the id parameter from the route
     this.fetchBlog();
     this.fetchComments();
+    this.fetchUserData();
   }
 
 }

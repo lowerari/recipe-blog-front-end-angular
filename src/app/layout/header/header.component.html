@@ -3,15 +3,18 @@
     <div class="title"><span>Recipe</span>ReviewCorner</div>
     <div class="registration-links">
         <a routerLink="/login">
-            <div class="login-link">
+            <div class="login-link" *ngIf="token.length === 0">
                 LOG IN
             </div>
         </a>
         <a routerLink="/sign-up">
-            <div class="signup-link">
+            <div class="signup-link" *ngIf="token.length === 0">
                 SIGN UP
             </div>
         </a>
+        <div class="login-link" (click)="logOut()" *ngIf="token.length > 0">
+            LOG OUT
+        </div>
     </div>
 </div>
 

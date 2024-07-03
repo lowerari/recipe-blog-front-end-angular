@@ -23,6 +23,8 @@ export class BlogsComponent implements OnInit {
   blogs: Blog[] = [];
   filteredBlogs: Blog[] = [];
 
+  token: string = localStorage.getItem('token') || '';
+
   fetchBlogs() {
     const url = 'https://salty-temple-86081-1a18659ec846.herokuapp.com/blogs/';
     const token = localStorage.getItem('token') || ''; //Have to provide an alternative value for the case where the token is not available

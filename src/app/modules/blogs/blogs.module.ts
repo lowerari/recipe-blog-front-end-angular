@@ -8,6 +8,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { FormsModule } from '@angular/forms';
 import { RatingModule } from 'primeng/rating';
 
+import { TruncateNamePipe } from '../../pipes/truncate-name.pipe';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { RatingModule } from 'primeng/rating';
     BlogsRoutingModule,
     DropdownModule,
     FormsModule,
-    RatingModule
+    RatingModule,
+    TruncateNamePipe
   ]
 })
 export class BlogsModule { }

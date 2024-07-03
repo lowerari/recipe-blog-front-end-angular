@@ -13,6 +13,9 @@ export class SignUpComponent {
   password: string = '';
   confirmPassword: string = '';
 
+  passwordsError: boolean = false;
+  signupError: boolean = false;
+
   constructor(private http: HttpClient, private router: Router) { }
 
   passwordsMatch() {
@@ -28,14 +31,18 @@ export class SignUpComponent {
         next: (response: any) => {
           console.log('Token:', response.token);
           localStorage.setItem('token', response.token);
-          this.router.navigate(['/blogs']);
+          this.router.navigate(['/blogs']).then(() => {
+            window.location.reload(); // Refresh the page so that the changes in the header show
+          });
         },
         error: (error: any) => {
           console.error('Error:', error);
+          this.signupError = true;
         }
       });
     } else{
       console.error('Passwords do not match');
+      this.passwordsError = true;
     }
     
   }

@@ -11,6 +11,8 @@ export class LoginComponent {
 
   username: string = '';
   password: string = '';
+  
+  loginError: boolean = false;
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -22,10 +24,13 @@ export class LoginComponent {
         next: (response: any) => {
           console.log('Token:', response.token);
           localStorage.setItem('token', response.token);
-          this.router.navigate(['/blogs']);
+          this.router.navigate(['/blogs']).then(() => {
+            window.location.reload(); // Refresh the page so that the changes in the header show (it's a little clunky but it works for now)
+          });
         },
         error: (error: any) => {
           console.error('Error:', error);
+          this.loginError = true;
         }
       });
   }

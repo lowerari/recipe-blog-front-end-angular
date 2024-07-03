@@ -18,6 +18,8 @@ export class PostComponent {
   content:string = '';
   selectedFile: File | null = null;
 
+  token: string = localStorage.getItem('token') || '';
+
   post() {
     const url = 'https://salty-temple-86081-1a18659ec846.herokuapp.com/blogs/';
     const token = localStorage.getItem('token') || ''; //Have to provide an alternative value for the case where the token is not available

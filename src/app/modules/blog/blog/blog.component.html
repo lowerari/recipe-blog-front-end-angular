@@ -33,7 +33,7 @@
             {{content}}
         </div>
         
-        <div class="edit-delete">
+        <div class="edit-delete" *ngIf="user_id === author_id">
             <hr>
             <div class="buttons">
                 <div class="edit-button" (click)="confirmEditAction()">
@@ -62,17 +62,23 @@
             </div>
         </div>
 
+        <div class="no-comments">
+            <div class="text" *ngIf="comments.length === 0">
+                No comments yet!
+            </div>
+        </div>
+
         <div class="user_comments">
             <div class="comment" *ngFor="let comment of comments">
                 <div class="comment-author">{{comment.author_username}}</div>
                 <div class="comment-content">{{comment.content}}</div>
                 <div class="comment-footer">
                     <div class="comment-buttons">
-                        <div class="edit-button" (click)="confirmEditCommentAction(comment.id, comment.content, comment.blog_id)">
+                        <div class="edit-button" [ngClass]="{'inactive': user_id !== comment.author}" (click)="confirmEditCommentAction(comment.id, comment.content, comment.blog_id)">
                             Edit
                             <i class="pi pi-pencil" style="font-size: .7rem"></i>
                         </div>
-                        <div class="delete-button" (click)="confirmDeleteCommentAction(comment.id)">
+                        <div class="delete-button" [ngClass]="{'inactive': user_id !== comment.author}" (click)="confirmDeleteCommentAction(comment.id)">
                             Delete
                             <i class="pi pi-trash" style="font-size: .7rem"></i>
                         </div>
